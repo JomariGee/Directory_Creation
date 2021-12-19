@@ -1,7 +1,7 @@
 # Directory_Creation
 Simple program to automate the creation of directories
 
-# Usage 
+✏️# Usage 
 ### Linux
 - git clone https://github.com/JomariGee/Directory_Creation
 - cd Directory_Creation 
