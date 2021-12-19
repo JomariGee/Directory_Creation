@@ -15,3 +15,5 @@ Simple program to automate the creation of directories
  ### Version 3
   - [ ] Specify where you want to write new direcories to
   - [ ] Small ASCII art 
+ ### Version 4
+  - [ ] Add color to output
