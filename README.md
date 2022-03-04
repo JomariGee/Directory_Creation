@@ -1,7 +1,7 @@
 # Directory_Creation
 Simple program to automate the creation of directories
 
-![alt text for screen readers](/path/to/image.png "Text to show on mouseover").
+![Dir.py Menu](https://github.com/JomariGee/Directory_Creation/blob/main/Dir.py-Usage.png?raw=true "Picture of dir.py menu").
 
 # ✏️ Usage 
 ### Linux 🐧
