@@ -13,4 +13,4 @@ Simple program to automate the creation of directories
 - cd Directory_Creation 
 - python3 dir.py
 
-Useful on Windows for creating multiple directories without having to openup cmd manually. Not useful for Linux lol
+Useful in Windows for creating multiple directories without having to openup cmd manually. Not useful for Linux lol
