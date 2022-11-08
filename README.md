@@ -9,8 +9,6 @@ Simple program to automate the creation of directories
 - Double click to run program and create directories 
 
 ### Linux 🐧
-- git clone https://github.com/JomariGee/Directory_Creation
-- cd Directory_Creation 
-- python3 dir.py
+Please don't use this on Linux lol
 
 Useful in Windows for creating multiple directories without having to openup cmd manually. Not useful for Linux lol
