@@ -1,26 +1,34 @@
-#File Creation
+#------------------------------------
+# Overkill file creation for Windows 
+#------------------------------------
 import os
 import colorama
-from colorama import Fore
+from colorama import Fore, Style
 
-def main(): #Print current working directory
+#Necessary for colorama to properly work on Windows
+colorama.init()
+os.system("cls" or "clear")
+
+#Print current working directory
+def main(): 
     print( "--------------------" *2)
     path = os.getcwd()
     print("Current Directory: ", path)
     print( "--------------------" *2) 
     options()
 
-def options(): #Options to interact with
+#Options to interact with
+def options(): 
     print (Fore.WHITE + """\nOptions 
-    [-c] --- Comma Seperated Files 
+    [-c] --- Comma Separated Files 
     [-m] --- Enter files manually 
     [-d] --- Change Directories
     [exit] --- Exit Program
     """)
     try:
-        user_selection = input(Fore.BLUE +"Select an option: " + Fore.WHITE)
+        user_selection = input(Fore.BLUE +"Select an option: " + Style.RESET_ALL)
         if user_selection == '-c':
-            comma_seperated_file_creation()
+            comma_separated_file_creation()
         elif user_selection == '-m':
             manual_file_creation()
         elif user_selection == '-d':
@@ -30,10 +38,10 @@ def options(): #Options to interact with
         else:
             options()
     except KeyboardInterrupt: #In-case Ctrl+C is pressed
-        print(Fore.RED + "\n[x]Bye!\n" + Fore.WHITE)
+        print(Fore.RED + "\n[x]Bye!\n"  + Style.RESET_ALL)
         exit
-
-def comma_seperated_file_creation(): #While loop for creating directories
+#While loop for creating directories
+def comma_separated_file_creation(): 
     while True:
         try: 
             print("""
@@ -44,39 +52,41 @@ def comma_seperated_file_creation(): #While loop for creating directories
             for unlisted_files in file_creation: #Loop through each split string to create files
                 try:
                     os.mkdir(unlisted_files)
-                    print(Fore.GREEN + "File created for:", unlisted_files + Fore.WHITE)
+                    print(Fore.GREEN + "File created for:", unlisted_files  + Style.RESET_ALL)
                 except FileExistsError: #Show error, already created file and move to next file
-                    print(Fore.RED + "\t[x]File:",unlisted_files,"already exists" + Fore.WHITE)
+                    print(Fore.RED + "\t[x]File:",unlisted_files,"already exists"  + Style.RESET_ALL)
                     pass
                 except KeyboardInterrupt: #Handle Ctrl+C being pressed
-                  print(Fore.RED + "\n[x]Bye!\n" + Fore.WHITE)
+                  print(Fore.RED + "\n[x]Bye!\n"  + Style.RESET_ALL)
                   exit
         except KeyboardInterrupt: #In-case Ctrl+C is pressed
-            print(Fore.RED + "\n[x]Bye!\n"+ Fore.WHITE)
+            print(Fore.RED + "\n[x]Bye!\n" + Style.RESET_ALL)
             break
         except FileNotFoundError: #Error if noting is entered 
-            print(Fore.RED + "\t[x]Enter your files" + Fore.WHITE)
-            comma_seperated_file_creation()
+            print(Fore.RED + "\t[x]Enter your files"  + Style.RESET_ALL)
+            comma_separated_file_creation()()
 
-def manual_file_creation(): #Manual file creation 
+#Manual file creation 
+def manual_file_creation(): 
         while True:
             try: 
                 file_creation = input(Fore.WHITE + "\nEnter the filename: ")
                 if file_creation == 'exit':
-                    print(Fore.GREEN + "\n\tAll your files have been created!\n" + Fore.WHITE)
+                    print(Fore.GREEN + "\n\tAll your files have been created!\n"  + Style.RESET_ALL)
                     break
                 elif file_creation == '': #Deals with no input
                     manual_file_creation()
                 else: 
                     os.makedirs(file_creation)
-                    print(Fore.GREEN + "\nFile created for:", file_creation + Fore.WHITE)
+                    print(Fore.GREEN + "\nFile created for:", file_creation  + Style.RESET_ALL)
             except FileExistsError:  #Handle file already being created
-                print(Fore.RED + "\n[X]File:",file_creation,"already exists" + Fore.WHITE)
+                print(Fore.RED + "\n[X]File:",file_creation,"already exists"  + Style.RESET_ALL)
             except KeyboardInterrupt: #Handle Ctrl+C being pressed
-                print(Fore.RED + "\n[x]Bye!\n" + Fore.WHITE)
+                print(Fore.RED + "\n[x]Bye!\n"  + Style.RESET_ALL)
                 break
 
-def change_directory():#Change current directory
+#Change current directory
+def change_directory():
     try:
         print(Fore.BLUE +"""\nLet's change your directory!\n
                 ------------------------------------------------------
@@ -84,22 +94,23 @@ def change_directory():#Change current directory
                     C:\\Users\\mrjam\\OneDrive\\Desktop\\Misc\\Python
                 - Enter 'back' to go back
                 ------------------------------------------------------
-        """ + Fore.WHITE)
+        """  + Style.RESET_ALL)
         path = input(Fore.WHITE +"Specify a path to write to: ")
         if path == 'back':
             options()
         else:
             os.chdir(path)
-            print(Fore.BLUE +"Current Directory is now: ",path)
+            print(Fore.BLUE +"Current Directory is now: ",path + Style.RESET_ALL)
             options()
     except OSError: #Handle nothing being entered
-        print(Fore.RED + "\n[x]Please enter something" + Fore.WHITE)
+        print(Fore.RED + "\n[x]Please enter something" + Style.RESET_ALL)
         change_directory()
     except KeyboardInterrupt:#Handle Ctrl+C being pressed
-        print(Fore.RED + "\n[x]Bye!\n" + Fore.WHITE)
+        print(Fore.RED + "\n[x]Bye!\n"  + Style.RESET_ALL)
         exit
- 
-def header(): #Gotta have ASCII art :)
+
+#Gotta have ASCII art :) 
+def header(): 
     print(Fore.BLUE + """
 ██████╗░██╗██████╗░░░░██████╗░██╗░░░██╗
 ██╔══██╗██║██╔══██╗░░░██╔══██╗╚██╗░██╔╝
@@ -108,6 +119,6 @@ def header(): #Gotta have ASCII art :)
 ██████╔╝██║██║░░██║██╗██║░░░░░░░░██║░░░
 """)
 
-#These modules are ran
-header()
-main()
+if __name__ =="__main__":
+    header()
+    main()
