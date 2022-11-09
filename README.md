@@ -11,4 +11,5 @@ Simple program to automate the creation of directories
 ### Linux 🐧
 Please don't use this on Linux lol
 
-Useful in Windows for creating multiple directories without having to openup cmd manually. Not useful for Linux lol
+It would be faster to install WSDL on Windows and go from there!
+(Made this just for fun) 
